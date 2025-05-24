@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="my-qa-project Test Suite" verbose="1" parallel="classes" thread-count="2">
+
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+
+    <test name="All Tests">
+        <packages>
+            <!-- Assuming your test classes are located in packages under com.example.myqaproject.tests -->
+            <package name="com.example.myqaproject.tests"/>
+        </packages>
+    </test>
+
+</suite>

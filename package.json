@@ -1,0 +1,13 @@
+{
+  "name": "my-qa-project-java-scripts",
+  "version": "1.0.0",
+  "description": "Helper scripts for my-qa-project Java Selenium project using Maven.",
+  "scripts": {
+    "test": "mvn clean test",
+    "build": "mvn clean install",
+    "allure:report": "mvn allure:report",
+    "allure:serve": "mvn allure:serve",
+    "test:allure": "mvn clean test allure:report allure:serve"
+  },
+  "private": true
+}
