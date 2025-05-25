@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: allure-report-html-${{ github.run_id }}
-          path: target/site/allure-maven  # ← this is where the HTML report is generated
+          path: allure-maven  # ← this is where the HTML report is generated
           retention-days: 7
       # Optional: You can add steps here to generate the Allure HTML report
       # and upload it as another artifact if needed, but viewing the results directory
