@@ -38,7 +38,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: allure-report-maven-${{ github.run_id }} # Dynamic name includes the run ID
-          path: target/allure-results # Default path for Allure Maven plugin results
+          path: allure-results # Default path for Allure Maven plugin results
           retention-days: 7 # Keep artifacts for 7 days
 
       # Optional: You can add steps here to generate the Allure HTML report
