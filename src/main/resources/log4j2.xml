@@ -18,7 +18,7 @@
 
     <Loggers>
         <!-- Specific logger for the project's base package -->
-        <Logger name="com.example.myqaproject" level="debug" additivity="false">
+        <Logger name="com.example.my-qa-project" level="debug" additivity="false">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="File"/>
             <AppenderRef ref="ErrorFile"/>

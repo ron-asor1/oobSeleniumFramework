@@ -8,7 +8,7 @@
     <test name="All Tests">
         <packages>
             <!-- Assuming your test classes are located in packages under com.example.myqaproject.tests -->
-            <package name="com.example.myqaproject.tests"/>
+            <package name="com.example.my_qa_project.tests"/>
         </packages>
     </test>
 
