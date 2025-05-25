@@ -1,4 +1,3 @@
-```yaml
 name: Selenium CI Workflow
 
 on:
@@ -57,4 +56,3 @@ jobs:
       #     name: allure-html-report-${{ github.run_id }}
       #     path: target/allure-report
       #     retention-days: 7
-```
