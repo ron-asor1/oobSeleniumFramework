@@ -23,7 +23,7 @@ public class Base {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
             // Use a unique temp directory for user data
-            options.addArguments("--user-data-dir=/tmp/chrome-profile-" + System.currentTimeMillis());
+            options.addArguments("--headless=new", "--no-sandbox", "--disable-dev-shm-usage");
             driver = new ChromeDriver(options);
         } else if (browser.equalsIgnoreCase("firefox")) {
             driver = new FirefoxDriver();
