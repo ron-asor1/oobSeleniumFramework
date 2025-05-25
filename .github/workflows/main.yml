@@ -29,17 +29,7 @@ jobs:
           cache: 'maven' # Cache Maven dependencies
 
       - name: Build and Test with Maven
-        run: mvn -B clean test # -B for batch mode (non-interactive), clean ensures a fresh build, test runs the tests
-        # Consider adding -Dsurefire.useFile=false if you want test output directly in the console logs instead of separate files
-
-      - name: Upload Maven Allure Report
-        # Use 'always()' to ensure this step runs even if the previous steps fail
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-report-maven-${{ github.run_id }} # Dynamic name includes the run ID
-          path: allure-results # Default path for Allure Maven plugin results
-          retention-days: 7 # Keep artifacts for 7 days
+        run: mvn -B clean test
 
       - name: Install Allure CLI
         run: sudo apt-get update && sudo apt-get install -y allure
