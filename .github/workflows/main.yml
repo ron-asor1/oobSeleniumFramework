@@ -41,18 +41,15 @@ jobs:
           path: allure-results # Default path for Allure Maven plugin results
           retention-days: 7 # Keep artifacts for 7 days
 
-      # Optional: You can add steps here to generate the Allure HTML report
-      # and upload it as another artifact if needed, but viewing the results directory
-      # via the Allure Github Actions integration is often sufficient.
-      # Example for generating and uploading the HTML report (requires installing Allure CLI):
-      # - name: Install Allure CLI
-      #   run: sudo apt-get update && sudo apt-get install allure -y
-      # - name: Generate Allure HTML report
-      #   run: allure generate target/allure-results --clean -o target/allure-report
-      #   if: always()
-      # - name: Upload Allure HTML Report Artifact
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: allure-html-report-${{ github.run_id }}
-      #     path: target/allure-report
-      #     retention-days: 7
+      - name: Install Allure CLI
+        run: sudo apt-get update && sudo apt-get install -y allure
+
+      - name: Generate Allure HTML report
+        run: allure generate allure-results --clean -o allure-report
+
+      - name: Upload Allure HTML Report Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-html-report-${{ github.run_id }}
+          path: allure-report
+          retention-days: 7
