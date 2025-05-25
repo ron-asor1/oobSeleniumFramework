@@ -1,10 +1,7 @@
-package APITests;
+package com.example.my_qa_project.tests;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import org.testng.annotations.Test;
-import org.testng.Assert;
-
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 import io.qameta.allure.*;

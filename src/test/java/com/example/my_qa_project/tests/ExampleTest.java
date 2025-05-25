@@ -1,4 +1,5 @@
-// package com.example.my_qa_project.tests;
+package com.example.my_qa_project.tests;
+
 import Utilities.Base;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
