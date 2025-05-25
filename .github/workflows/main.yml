@@ -29,17 +29,28 @@ jobs:
           cache: 'maven' # Cache Maven dependencies
 
       - name: Build and Test with Maven
-        run: mvn -B clean test
+        run: mvn -B clean test # -B for batch mode (non-interactive), clean ensures a fresh build, test runs the tests
+        # Consider adding -Dsurefire.useFile=false if you want test output directly in the console logs instead of separate files
 
-      - name: Install Allure CLI
-        run: sudo apt-get update && sudo apt-get install -y allure
-
-      - name: Generate Allure HTML report
-        run: allure generate allure-results --clean -o allure-report
-
-      - name: Upload Allure HTML Report Artifact
+      - name: Upload Allure HTML Report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: allure-html-report-${{ github.run_id }}
-          path: allure-report
+          name: allure-report-html-${{ github.run_id }}
+          path: target/site/allure-maven  # ← this is where the HTML report is generated
           retention-days: 7
+      # Optional: You can add steps here to generate the Allure HTML report
+      # and upload it as another artifact if needed, but viewing the results directory
+      # via the Allure Github Actions integration is often sufficient.
+      # Example for generating and uploading the HTML report (requires installing Allure CLI):
+      # - name: Install Allure CLI
+      #   run: sudo apt-get update && sudo apt-get install allure -y
+      # - name: Generate Allure HTML report
+      #   run: allure generate target/allure-results --clean -o target/allure-report
+      #   if: always()
+      # - name: Upload Allure HTML Report Artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: allure-html-report-${{ github.run_id }}
+      #     path: target/allure-report
+      #     retention-days: 7
